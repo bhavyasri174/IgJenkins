@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('Compile and clean'){
       steps{
-        sh 'mvn clean'
+        sh 'mvn clean compile'
       }
     }
     stage('Test'){
