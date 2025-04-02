@@ -4,7 +4,7 @@ pipeline {
         stage('clean and compile') {
             steps {
                 echo 'Hello, Maven'
-                sh 'mvn clean  compile'
+                
             }
         }
         stage('Example Test') {
