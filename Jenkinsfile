@@ -1,5 +1,8 @@
 pipeline{
   agent any
+   tools {
+        maven 'M3'  // Use the Maven tool name configured in Jenkins
+    }
   stages{
     stage('Compile and clean'){
       steps{
