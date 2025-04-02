@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven_3.8.1'  // Use the configured Maven tool in Jenkins
+        maven 'Maven_3.9.9'  // Use the configured Maven tool in Jenkins
     }
     stages {
         stage('Build') {
