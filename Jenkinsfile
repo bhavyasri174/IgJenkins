@@ -1,10 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Example Build') {
+        stage('clean and compile') {
             steps {
                 echo 'Hello, Maven'
-                sh 'mvn --version'
+                sh 'mvn clean  compile'
             }
         }
         stage('Example Test') {
