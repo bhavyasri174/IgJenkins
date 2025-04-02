@@ -1,23 +1,19 @@
-pipeline{
-  agent any
-   tools {
-        maven 'M3'  // Use the Maven tool name configured in Jenkins
+pipeline {
+    agent none
+    stages {
+        stage('Example Build') {
+            agent { docker 'maven:3.9.3-eclipse-temurin-17' }
+            steps {
+                echo 'Hello, Maven'
+                sh 'mvn --version'
+            }
+        }
+        stage('Example Test') {
+            agent { docker 'openjdk:17-jre' }
+            steps {
+                echo 'Hello, JDK'
+                sh 'java -version'
+            }
+        }
     }
-  stages{
-    stage('Compile and clean'){
-      steps{
-        sh 'mvn clean compile'
-      }
-    }
-    stage('Test'){
-      steps{
-        echo 'Test'
-      }
-    }
-    stage('Scan'){
-      steps{
-        echo'Scan'
-      }
-    }
-  }
 }
