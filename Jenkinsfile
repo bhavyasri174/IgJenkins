@@ -1,17 +1,12 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven_3.8.1'  // Use the configured Maven tool in Jenkins
+    }
     stages {
-        stage('clean and compile') {
+        stage('Build') {
             steps {
-                echo 'Hello, Maven'
-                
-            }
-        }
-        stage('Example Test') {
-            
-            steps {
-                echo 'Hello, JDK'
-               
+                bat 'mvn clean install'  // Use 'sh' instead of 'bat' for Linux/Mac
             }
         }
     }
