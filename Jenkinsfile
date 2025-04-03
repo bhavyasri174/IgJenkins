@@ -43,6 +43,7 @@ pipeline {
                      //bat 'docker build -t  docker.repository.esi.adp.com/clientcentral/training:docker_jenkins_springboot:${BUILD_NUMBER} .'
 		   script{
            	    sh 'docker build -t  sampleproject .'
+		    echo 'docker build'
 		         }
              }
 	}
