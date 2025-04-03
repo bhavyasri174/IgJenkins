@@ -35,19 +35,17 @@ pipeline {
                 sh 'mvn clean install'
                   }
             }
-stage('Install Docker') {
-    steps {
-        sh 'apt-get update && apt-get install -y docker.io'
-    }
-}
+
         stage('Build Docker image'){
            steps {
                       //   	docker build -t nodejs-server -f Dockerfile.arg --build-arg UBUNTU_VERSION=18.04
 		             //--build-arg CUDA_VERSION=10.0
                      //bat 'docker build -t  docker.repository.esi.adp.com/clientcentral/training:docker_jenkins_springboot:${BUILD_NUMBER} .'
+		   script{
            	    sh 'docker build -t  sampleproject .'
 		         }
              }
+	}
         stage('Docker Login'){
             steps {
               echo "docker login from console"
