@@ -2,7 +2,9 @@ version: '3'
 services:
   jenkins:
     image: jenkins/jenkins:lts
-    user: root
+    container_name: jenkins
+    user: root  # Ensures Jenkins runs as root
+    privileged: true  # Grants full system access
     ports:
       - "8070:8070"
       - "50000:50000"
@@ -10,5 +12,11 @@ services:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
+      - /etc/apt:/etc/apt
+      - /var/lib/apt:/var/lib/apt
+    environment:
+      - DOCKER_TLS_CERTDIR=
+    restart: always
+
 volumes:
   jenkins_home:
